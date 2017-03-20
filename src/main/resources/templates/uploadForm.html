@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<center>
+	<h1 style='bold'>Google Drive API</h1>
+	<p>-----------------------------------------</p>
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+		
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+	</div>
+	
+	<div>
+			<form method="GET" enctype="multipart/form-data" action="/">
+				<table>
+					<tr><td>Search File:</td><td><input type="text" name="fileName" /></td><td><input type="submit" value="Find" /></td></tr>
+					
+				</table>
+			</form>
+		</div>
+	<div>
+		<ul>
+			<li th:each="file : ${files}">
+				<a th:href="${file}" th:text="${file}" />
+			</li>
+		</ul>
+	</div>
+</center>
+</body>
+</html>
